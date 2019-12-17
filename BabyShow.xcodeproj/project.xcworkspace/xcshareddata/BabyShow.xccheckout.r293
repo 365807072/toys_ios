@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>224BFD4D-6878-489B-BFF1-C193E369F3B9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>b669b686-f4d7-48d2-a694-ce7d1d7bb718</key>
+		<string>svn://112.124.19.220/proj_babyshow/ios</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BabyShowNew/BabyShow.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>b669b686-f4d7-48d2-a694-ce7d1d7bb718</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>b669b686-f4d7-48d2-a694-ce7d1d7bb718</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>b669b686-f4d7-48d2-a694-ce7d1d7bb718</string>
+			<key>IDESourceControlWCCName</key>
+			<string>babyShow3.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

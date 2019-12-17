@@ -1,0 +1,52 @@
+/* 
+  NoticeMe.strings
+  BabyShow
+
+  Created by Monica on 14-11-27.
+  Copyright (c) 2014年 Yuanyuanquanquan.com. All rights reserved.
+*/
+
+
+//2014年11月27日12:58:04
+/*
+ 
+ 删除掉的大项内容包括:
+ 
+////////////////////////// 文件:
+ AlbumScrollViewController,模板展示页面
+ Square(V1)ViewController及相关SquareCell,WaterFall瀑布流相关文件
+ EditBabyNameViewController 编辑宝贝姓名页面,废弃,改为在展示宝宝页面编辑
+ 
+ BBSUrlCatcher
+ MHPMyOutPutCell
+ PhotoShareAndReviewViewController
+ ActivityViewController活动页面
+ PostBarViewController 老版
+ 
+ AlbumImageDetailViewController
+ MakeAShowPickerViewController
+ 
+ RandomPostMark邮戳,in PPTViewController
+ 
+////////////////////////// 图片:
+ ThemeTemplate图片展示模板
+ Square/
+ PostMark/
+ 部分文件用到的图片
+ */
+
+/*
+ 2014年11月28日17:59:10
+ Diary类,Diary图片
+ MyShowUrlCell,
+ */
+/**
+ *  2014年12月20日
+    sharesdk精简包
+    umeng放入Libraries文件夹
+ */
+
+/**
+ *  2014年12月22日
+ 64-bit的适配
+ */

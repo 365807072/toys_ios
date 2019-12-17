@@ -1,0 +1,43 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "UMMobClick/MobClick.h"
+
+    #import "HTTPClient.h"
+   // #import "MobClick.h"
+    #import "BBSColor.h"
+    #import "BBSAlert.h"
+    #import "LoadingView.h"
+    #import "RequestParam.h"
+    #import "NetAccess.h"
+    #import "AppDelegate.h"
+    #import "BaseLabel.h"
+    #import "YLButton.h"
+   #import "BaseImageView.h"
+    #import "PDGlobalCore.h"
+
+
+
+
+#endif
+
+//屏蔽Release状态下的NSLog输出,能够提高运行效率
+#ifdef DEBUG
+#define NSLog(format, ...) NSLog(format, ## __VA_ARGS__)
+#else
+#define NSLog(format, ...)
+#endif
+
+
