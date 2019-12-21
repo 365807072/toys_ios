@@ -46,9 +46,12 @@
 #define statusBarMaxW MAX(CGRectGetWidth([UIApplication sharedApplication].statusBarFrame),CGRectGetHeight([UIApplication sharedApplication].statusBarFrame))
 #define statusBarH (diffStatusBarHidden ? 0.0f : statusBarMinW)
 
-//IPhoneX  --- 34.0f 否则 0.0f
-#define ISIPhoneX ((MAX([UIScreen mainScreen].currentMode.size.width,[UIScreen mainScreen].currentMode.size.height)==2436.0f)?YES:NO)
-
+#define ISIPhoneX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 //如果是横屏. 左右偏移量44.0f 竖屏0.0f
 #define IPhoneXOffsetLR ((ISIPhoneX && InterfaceLandscape)?44.0f:0.0f)
 
@@ -57,7 +60,7 @@
 
 #define IPhoneXSafeHeight (ISIPhoneX?34:0)
 
-#define TabbarHeight (42+IPhoneXSafeHeight)
+#define TabbarHeight (49+IPhoneXSafeHeight)
 
 /****************适配x****************************/
 

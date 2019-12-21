@@ -262,13 +262,19 @@
     [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault]; [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     if (_inTheViewData == 2001 || _inTheViewData == 2002) {
         self.navigationController.navigationBarHidden = YES;
     }else{
         self.navigationController.navigationBarHidden = NO;
     }
-    self.tabBarController.tabBar.hidden = YES;
+    if (_hideBottomTab) {
+        self.tabBarController.tabBar.hidden = NO;
+    } else {
+        self.tabBarController.tabBar.hidden = YES;
+    }
+    
     self.automaticallyAdjustsScrollViewInsets=NO;
     self.navigationController.navigationBar.translucent = NO;
 
@@ -283,6 +289,7 @@
     }
     if (_inTheViewData == 2002) {
         [self alertShowInSelectView:_alertAlertClassifyString];
+        [self changeDataWithTag:secondBtn];
     }
     [self getToyCarCount];
 }
@@ -290,8 +297,8 @@
     self.navigationController.navigationBar.barTintColor = [BBSColor hexStringToColor:NAVICOLOR];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault]; [self.navigationController.navigationBar setShadowImage:nil];
-        [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
-        self.navigationController.navigationBarHidden = NO;
+    [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
+    self.navigationController.navigationBarHidden = NO;
     [_tableView removeObserver:self forKeyPath:@"contentOffset"];
     self.navigationController.navigationBar.translucent = YES;
     [self cancelActivityView];
@@ -605,7 +612,7 @@
     _post_create_timeToy = NULL;
     _post_create_timeOrder = NULL;
     _post_create_carToy = NULL;
-    if (_inTheViewData!= 2003) {
+    if (_inTheViewData != 2003 && _inTheViewData != 2002) {
         _inTheViewData = 2001;
     }
     if (_inTheViewData == 2001 || _inTheViewData == 2002) {
@@ -1561,59 +1568,62 @@
     self.totalMoneyLabel.font = [UIFont systemFontOfSize:15];
     [self.payToys addSubview:self.totalMoneyLabel];
     self.payToys.hidden = YES;
-    btnView = [[UIView alloc]init];
-    if (_inTheViewData == 2001 || _inTheViewData == 2002) {
-        btnView.frame = CGRectMake(0,  SCREENHEIGHT- IPhoneXSafeHeight-46 , SCREENWIDTH,46);
-    }else{
-        btnView.frame = CGRectMake(0,  SCREENHEIGHT-StatusAndNavBar_HEIGHT - IPhoneXSafeHeight-46 , SCREENWIDTH,46);
-    }
-   // btnView = [[UIView alloc]initWithFrame:CGRectMake(0,  SCREENHEIGHT-StatusAndNavBar_HEIGHT - IPhoneXSafeHeight-46 , SCREENWIDTH,46)];
-    btnView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:btnView];
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 1)];
-    lineView.backgroundColor = [BBSColor hexStringToColor:@"f5f5f5"];
-    [btnView addSubview:lineView];
-    //首页
-    firstBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    firstBtn.frame = CGRectMake(0, 2, SCREENWIDTH/4, 40);
-    [firstBtn setImage:[UIImage imageNamed:@"firtst_select"] forState:UIControlStateNormal];
-    firstBtn.tag = 2001;
-    [btnView addSubview:firstBtn];
-    [firstBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
-    //全部
-    secondBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    secondBtn.frame = CGRectMake(SCREENWIDTH/4, 2, SCREENWIDTH/4, 40);
-    [secondBtn setImage:[UIImage imageNamed:@"all_unselect"] forState:UIControlStateNormal];
-    [btnView addSubview:secondBtn];
-    secondBtn.tag = 2002;
-    [secondBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
-    //购物车
-    fourBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    fourBtn.frame = CGRectMake(SCREENWIDTH*2/4, 2, SCREENWIDTH/4, 40);
-    [fourBtn setImage:[UIImage imageNamed:@"car_unselect"] forState:UIControlStateNormal];
-    [btnView addSubview:fourBtn];
-    fourBtn.tag = 2004;
-    [fourBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
     
-    //购物车的数量的label
-    _badgeValueLabel=[[UILabel alloc]initWithFrame:CGRectMake(SCREENWIDTH*2/4+48, 0, 20, 20)];
-    _badgeValueLabel.backgroundColor=[BBSColor hexStringToColor:@"FF7F7C"];
-    _badgeValueLabel.textColor=[UIColor whiteColor];
-    _badgeValueLabel.font=[UIFont systemFontOfSize:10];
-    _badgeValueLabel.textAlignment=NSTextAlignmentCenter;
-    _badgeValueLabel.text=@"";
-    _badgeValueLabel.layer.masksToBounds=YES;
-    _badgeValueLabel.layer.cornerRadius=10;
-    [btnView addSubview:_badgeValueLabel];
-    _badgeValueLabel.hidden = YES;
+    if (!_hideBottomTab) {
+        
+        btnView = [[UIView alloc]init];
+        if (_inTheViewData == 2001 || _inTheViewData == 2002) {
+            btnView.frame = CGRectMake(0,  SCREENHEIGHT- IPhoneXSafeHeight-49 , SCREENWIDTH,49);
+        }else{
+            btnView.frame = CGRectMake(0,  SCREENHEIGHT-StatusAndNavBar_HEIGHT - IPhoneXSafeHeight-46 , SCREENWIDTH,46);
+        }
+        btnView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:btnView];
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 1)];
+        lineView.backgroundColor = [BBSColor hexStringToColor:@"f5f5f5"];
+        [btnView addSubview:lineView];
+        //首页
+        firstBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        firstBtn.frame = CGRectMake(0, 2, SCREENWIDTH/4, 40);
+        [firstBtn setImage:[UIImage imageNamed:@"firtst_select"] forState:UIControlStateNormal];
+        firstBtn.tag = 2001;
+        [btnView addSubview:firstBtn];
+        [firstBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
+        //全部
+        secondBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        secondBtn.frame = CGRectMake(SCREENWIDTH/4, 2, SCREENWIDTH/4, 40);
+        [secondBtn setImage:[UIImage imageNamed:@"all_unselect"] forState:UIControlStateNormal];
+        [btnView addSubview:secondBtn];
+        secondBtn.tag = 2002;
+        [secondBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
+        //购物车
+        fourBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        fourBtn.frame = CGRectMake(SCREENWIDTH*2/4, 2, SCREENWIDTH/4, 40);
+        [fourBtn setImage:[UIImage imageNamed:@"car_unselect"] forState:UIControlStateNormal];
+        [btnView addSubview:fourBtn];
+        fourBtn.tag = 2004;
+        [fourBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //购物车的数量的label
+        _badgeValueLabel=[[UILabel alloc]initWithFrame:CGRectMake(SCREENWIDTH*2/4+48, 0, 20, 20)];
+        _badgeValueLabel.backgroundColor=[BBSColor hexStringToColor:@"FF7F7C"];
+        _badgeValueLabel.textColor=[UIColor whiteColor];
+        _badgeValueLabel.font=[UIFont systemFontOfSize:10];
+        _badgeValueLabel.textAlignment=NSTextAlignmentCenter;
+        _badgeValueLabel.text=@"";
+        _badgeValueLabel.layer.masksToBounds=YES;
+        _badgeValueLabel.layer.cornerRadius=10;
+        [btnView addSubview:_badgeValueLabel];
+        _badgeValueLabel.hidden = YES;
 
-    //订单
-    thridBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    thridBtn.frame = CGRectMake(SCREENWIDTH*3/4,2, SCREENWIDTH/4, 40);
-    [thridBtn setImage:[UIImage imageNamed:@"order_unselect"] forState:UIControlStateNormal];
-    [btnView addSubview:thridBtn];
-    thridBtn.tag = 2003;
-    [thridBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
+        //订单
+        thridBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        thridBtn.frame = CGRectMake(SCREENWIDTH*3/4,2, SCREENWIDTH/4, 40);
+        [thridBtn setImage:[UIImage imageNamed:@"order_unselect"] forState:UIControlStateNormal];
+        [btnView addSubview:thridBtn];
+        thridBtn.tag = 2003;
+        [thridBtn addTarget:self action:@selector(changeDataWithTag:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [self changeFrameAndSearchBarHidden];
     [self setDeleteButtons];
 }
@@ -1955,6 +1965,11 @@
         _lastTag = _inTheViewData;
     }
     _inTheViewData = button.tag;
+    if (_inTheViewData == 2001) {
+        BBSTabBarViewController *tabVC = (BBSTabBarViewController *)theAppDelegate.window.rootViewController;
+        [tabVC setBBStabbarSelectedIndex:0];
+        tabVC.selectedIndex = 0;
+    }
     [self changeData:_inTheViewData];
     [self hiddenAllClassifyView];
     
@@ -2080,7 +2095,7 @@
         self.payToys.hidden = YES;
         self.carAlertView.hidden = YES;
         self.navigationController.navigationBarHidden = YES;
-    _classifyView.hidden = YES;
+        _classifyView.hidden = YES;
          btnView.frame = CGRectMake(0,  SCREENHEIGHT- IPhoneXSafeHeight-46 , SCREENWIDTH,46);
 
     }else if (_inTheViewData == 2002){
@@ -4478,11 +4493,11 @@ CGPoint point;
         }];
  
     }else{
-    MakeSurePaySureVC *makeSurePay = [[MakeSurePaySureVC alloc]init];
-    makeSurePay.fromWhere = @"3";
-    makeSurePay.source = @"3";
-    makeSurePay.combined_order_idOrderLst = item.combineId;
-    [self.navigationController pushViewController:makeSurePay animated:YES];
+        MakeSurePaySureVC *makeSurePay = [[MakeSurePaySureVC alloc]init];
+        makeSurePay.fromWhere = @"3";
+        makeSurePay.source = @"3";
+        makeSurePay.combined_order_idOrderLst = item.combineId;
+        [self.navigationController pushViewController:makeSurePay animated:YES];
     }
 
 }
@@ -4536,7 +4551,7 @@ CGPoint point;
             _inTheViewData = 2002;
             [self changeData:_inTheViewData];
         }else{
-        [self pushToyList:pushId];
+            [self pushToyList:pushId];
         }
         
     }else if ([type isEqualToString:@"3"]){
@@ -4592,7 +4607,6 @@ CGPoint point;
             }
             if ([self.fromMain isEqualToString:@"main"]) {
                 
-
                 BBSTabBarViewController *tabVC = [[BBSTabBarViewController alloc]init];
                 theAppDelegate.window.rootViewController = tabVC;
                 [tabVC setBBStabbarSelectedIndex:0];
@@ -4605,7 +4619,7 @@ CGPoint point;
             
         }else{
             _inTheViewData = 2001;
-            [self changeData:_inTheViewData];
+            [self changeDataWithTag:firstBtn];
             _backBtn.hidden = NO;
         }
     }

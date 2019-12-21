@@ -14,7 +14,6 @@
 #import "DataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "ToyTransportVC.h"
-#import "ToyLeaseNewVC.h"
 #import "ToyLeaseDetailVC.h"
 #import "NIAttributedLabel.h"
 #import "MakeSureMoneyVC.h"

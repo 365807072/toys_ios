@@ -579,7 +579,6 @@
 		4E346F0D1E4C7EA200C60512 /* ToyClassListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E346EFF1E4C7EA200C60512 /* ToyClassListVC.m */; };
 		4E346F0E1E4C7EA200C60512 /* ToyLeaseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E346F011E4C7EA200C60512 /* ToyLeaseDetailVC.m */; };
 		4E346F0F1E4C7EA200C60512 /* ToyLeaseListHtmlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E346F031E4C7EA200C60512 /* ToyLeaseListHtmlVC.m */; };
-		4E346F101E4C7EA200C60512 /* ToyLeaseListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E346F051E4C7EA200C60512 /* ToyLeaseListVC.m */; };
 		4E346F111E4C7EA200C60512 /* ToyLeaseNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E346F071E4C7EA200C60512 /* ToyLeaseNewVC.m */; };
 		4E346F121E4C7EA200C60512 /* ToyTransportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E346F091E4C7EA200C60512 /* ToyTransportVC.m */; };
 		4E346F151E4C800500C60512 /* ToySearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E346F141E4C800500C60512 /* ToySearchVC.m */; };
@@ -2637,8 +2636,6 @@
 		4E346F011E4C7EA200C60512 /* ToyLeaseDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToyLeaseDetailVC.m; sourceTree = "<group>"; };
 		4E346F021E4C7EA200C60512 /* ToyLeaseListHtmlVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToyLeaseListHtmlVC.h; sourceTree = "<group>"; };
 		4E346F031E4C7EA200C60512 /* ToyLeaseListHtmlVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToyLeaseListHtmlVC.m; sourceTree = "<group>"; };
-		4E346F041E4C7EA200C60512 /* ToyLeaseListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToyLeaseListVC.h; sourceTree = "<group>"; };
-		4E346F051E4C7EA200C60512 /* ToyLeaseListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToyLeaseListVC.m; sourceTree = "<group>"; };
 		4E346F061E4C7EA200C60512 /* ToyLeaseNewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToyLeaseNewVC.h; sourceTree = "<group>"; };
 		4E346F071E4C7EA200C60512 /* ToyLeaseNewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToyLeaseNewVC.m; sourceTree = "<group>"; };
 		4E346F081E4C7EA200C60512 /* ToyTransportVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToyTransportVC.h; sourceTree = "<group>"; };
@@ -5692,8 +5689,6 @@
 				4E346F011E4C7EA200C60512 /* ToyLeaseDetailVC.m */,
 				4E346F021E4C7EA200C60512 /* ToyLeaseListHtmlVC.h */,
 				4E346F031E4C7EA200C60512 /* ToyLeaseListHtmlVC.m */,
-				4E346F041E4C7EA200C60512 /* ToyLeaseListVC.h */,
-				4E346F051E4C7EA200C60512 /* ToyLeaseListVC.m */,
 				4E346F061E4C7EA200C60512 /* ToyLeaseNewVC.h */,
 				4E346F071E4C7EA200C60512 /* ToyLeaseNewVC.m */,
 				FA2049712112AB9700639675 /* MyCardListVC.h */,
@@ -9477,7 +9472,6 @@
 				F23842781B031BFA00FFCA3B /* SpecialHeaderListImagesView.m in Sources */,
 				4E915E3F1BD891D60052B942 /* UIImageView+HighlightedWebCache.m in Sources */,
 				4E7DCED81CC87530008E7092 /* PostBarDetailNewV1Item.m in Sources */,
-				4E346F101E4C7EA200C60512 /* ToyLeaseListVC.m in Sources */,
 				F2AF98491A7F1669003C3A88 /* DiaryEditCell.m in Sources */,
 				4EC897161C2BC4A000EA15A7 /* PostGroupSpecialCell.m in Sources */,
 				4E9530AD1CC8DC790022D9C2 /* PostBarNewDetailV1AdmireCell.m in Sources */,

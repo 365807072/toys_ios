@@ -36,7 +36,6 @@
 #import "WebViewController.h"
 #import "MyOrdersViewController.h"
 #import "PostBarNewGroupOnlyOneVC.h"
-#import "ToyLeaseListVC.h"
 #import "ToyTransportVC.h"
 #import "ToyLeaseDetailVC.h"
 #import "ToyLeaseNewVC.h"
@@ -271,8 +270,7 @@
     [self.myCache setShouldRespectCacheControlHeaders:NO];
     
     if ([BBSHasLogIn userHasLogIn]){
-            [self setBBSTabBarController];
-        
+        [self setBBSTabBarController];
     }else{
         [self setStartViewController];
     }
@@ -758,17 +756,17 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#pragma mark UITabBarControllerDelegate:
+//#pragma mark UITabBarControllerDelegate:
+//
+//-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+//
+//    for (UINavigationController *nav in tabBarController.viewControllers) {
+//        [nav popToRootViewControllerAnimated:YES];
+//    }
+//
+//}
 
--(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    
-    for (UINavigationController *nav in tabBarController.viewControllers) {
-        [nav popToRootViewControllerAnimated:YES];
-    }
-    
-}
-
-#pragma mark Private
+#pragma mark - Private
 
 
 -(void)getMessageCount{
@@ -861,7 +859,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:USERBABYUPDATE];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.tabbarcontroller=[[BBSTabBarViewController alloc]init];
-    self.tabbarcontroller.delegate=self;
+//    self.tabbarcontroller.delegate=self;
     self.window.rootViewController=self.tabbarcontroller;
     
     if (LOGIN_USER_ID != NULL) {
@@ -883,11 +881,8 @@
         self.window.rootViewController=startNv;
         [userDefaults setObject:@"1" forKey:@"firstLaunch"];
         [userDefaults synchronize];
-        
-        
     }else{
-
-            [self setVistorLogin];
+        [self setVistorLogin];
     }
 }
 #pragma mark 游客登录
