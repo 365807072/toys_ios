@@ -56,7 +56,7 @@
     UMConfigInstance.appKey = UMENG_APPKEY;
     UMConfigInstance.channelId = UMENG_CHANEL_ID;
     [MobClick startWithConfigure:UMConfigInstance];
-
+    
     
     //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
     //    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
@@ -67,7 +67,7 @@
     //    [MobClick checkUpdate];   //自动更新检查, 如果需要自定义更新请使用下面的方法,需要接收一个(NSDictionary *)appInfo的参数
     //    [MobClick checkUpdateWithDelegate:self selector:@selector(updateMethod:)];
     
-   // [MobClick updateOnlineConfig];  //在线参数配置
+    // [MobClick updateOnlineConfig];  //在线参数配置
     
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onlineConfigCallBack:) name:UMOnlineConfigDidFinishedNotification object:nil];
     
@@ -102,9 +102,9 @@
                                                 case SSDKPlatformTypeWechat:
                                                     [ShareSDKConnector connectWeChat:[WXApi class]];
                                                     break;
-                                               /* case SSDKPlatformTypeQQ:
-                                                    [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
-                                                    break;*/
+                                                    /* case SSDKPlatformTypeQQ:
+                                                     [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+                                                     break;*/
                                                 case SSDKPlatformTypeSinaWeibo:
                                                     [ShareSDKConnector connectWeibo:[WeiboSDK class]];
                                                     break;
@@ -126,12 +126,12 @@
                                                     [appInfo SSDKSetupWeChatByAppId:WEIXINAPPKEY
                                                                           appSecret:WEIXINAPPSECRET];
                                                     break;
-                                                 
-                                               /* case SSDKPlatformTypeQQ:
-                                                    [appInfo SSDKSetupQQByAppId:@"1101220810"
-                                                                         appKey:@"kcbgpQz2MGhZGxBH"
-                                                                       authType:SSDKAuthTypeBoth];
-                                                    break;*/
+                                                    
+                                                    /* case SSDKPlatformTypeQQ:
+                                                     [appInfo SSDKSetupQQByAppId:@"1101220810"
+                                                     appKey:@"kcbgpQz2MGhZGxBH"
+                                                     authType:SSDKAuthTypeBoth];
+                                                     break;*/
                                                 default:
                                                     break;
                                             }
@@ -167,7 +167,7 @@
     [self getLocationLatAndLog];
     
     //程序休眠时间
-   // [NSThread sleepForTimeInterval:1.0];
+    // [NSThread sleepForTimeInterval:1.0];
     
     
     //2、版本监测
@@ -215,28 +215,26 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(netError) name:USER_NETVISTOR_ERROR object:nil];
     
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-    [defaultCenter addObserver:self
-                      selector:@selector(networkDidSetup:)
-                          name:kJPFNetworkDidSetupNotification
-                        object:nil];
-    [defaultCenter addObserver:self
-                      selector:@selector(networkDidClose:)
-                          name:kJPFNetworkDidCloseNotification
-                        object:nil];
-    [defaultCenter addObserver:self
-                      selector:@selector(networkDidRegister:)
-                          name:kJPFNetworkDidRegisterNotification
-                        object:nil];
+//    [defaultCenter addObserver:self
+//                      selector:@selector(networkDidSetup:)
+//                          name:kJPFNetworkDidSetupNotification
+//                        object:nil];
+//    [defaultCenter addObserver:self
+//                      selector:@selector(networkDidClose:)
+//                          name:kJPFNetworkDidCloseNotification
+//                        object:nil];
+//    [defaultCenter addObserver:self
+//                      selector:@selector(networkDidRegister:)
+//                          name:kJPFNetworkDidRegisterNotification
+//                        object:nil];
     [defaultCenter addObserver:self
                       selector:@selector(networkDidLogin:)
                           name:kJPFNetworkDidLoginNotification
-     
-     
                         object:nil];
-    [defaultCenter addObserver:self
-                      selector:@selector(networkDidReceiveMessage:)
-                          name:kJPFNetworkDidReceiveMessageNotification
-                        object:nil];
+//    [defaultCenter addObserver:self
+//                      selector:@selector(networkDidReceiveMessage:)
+//                          name:kJPFNetworkDidReceiveMessageNotification
+//                        object:nil];
     
     self.isNewLogin=1;
     [self setRefreshBoolNo];
@@ -244,18 +242,18 @@
     [self setShareSDK];
     
     /*
-    //注册短信的SDK
-    [SMSSDK registerApp:AppKeySMS withSecret:AppSecretSMS];
-    [SMSSDK enableAppContactFriends:NO];
+     //注册短信的SDK
+     [SMSSDK registerApp:AppKeySMS withSecret:AppSecretSMS];
+     [SMSSDK enableAppContactFriends:NO];
      */
     
     //7、腾讯地图appKey
     [QMapServices sharedServices].apiKey = @"2QTBZ-QFC24-D6AU5-DMELL-N33P6-LGFUE";
     
     //8、注册微信支付
-   
+    
     [WXApi registerApp:WEIXINAPPKEY enableMTA:NO];
-     //[WXApi registerApp:WEIXINAPPKEY withDescription:@"demo 2.0"];
+    //[WXApi registerApp:WEIXINAPPKEY withDescription:@"demo 2.0"];
     
     self.messCount = @(0);
     [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(getMessageCount) userInfo:nil repeats:YES];
@@ -280,10 +278,7 @@
     //  是否展示广告
     _isRequestActivity = YES;
     _isRequestActivityToy = YES;
-   // [self isShowActivityView];
-
-
-    
+    // [self isShowActivityView];
     return YES;
 }
 
@@ -294,7 +289,7 @@
     [pushJudge synchronize];
     NSString *index = megDic[@"index"];
     if ([index isEqualToString:@"0"]) {
-      //什么都不用跳
+        //什么都不用跳
     }else if ([index isEqualToString:@"1"]){
         //图文帖子
         NSString *img_id = megDic[@"img_id"];
@@ -337,13 +332,13 @@
         self.tabbarcontroller.selectedIndex = 0;
     }else if ([index isEqualToString:@"5"]){
         //商家详情
-         NSString *img_id = megDic[@"business_id"];
+        NSString *img_id = megDic[@"business_id"];
         StoreDetailNewVC *storeVC = [[StoreDetailNewVC alloc]init];
         storeVC.longin_user_id = LOGIN_USER_ID;
         storeVC.business_id = img_id;
         BBSCommonNavigationController *nav = [[BBSCommonNavigationController alloc]initWithRootViewController:storeVC];
         [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
-
+        
     }else if ([index isEqualToString:@"6"]){
         //订单列表
         MyOrdersViewController *myOrderVC = [[MyOrdersViewController alloc]init];
@@ -362,12 +357,12 @@
         //web活动页
         NSString *webUrl = megDic[@"web_url"];
         WebViewController *webView=[[WebViewController alloc]init];
-       // webView.img_id = self.imgID;
+        // webView.img_id = self.imgID;
         webView.urlStr=[webUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [webView setHidesBottomBarWhenPushed:YES];
         BBSCommonNavigationController *nav = [[BBSCommonNavigationController alloc]initWithRootViewController:webView];
         [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
-
+        
     }else if([index isEqualToString:@"9"]){
         ToyLeaseNewVC *listVC = [[ToyLeaseNewVC alloc]init];
         listVC.inTheViewData = 2001;
@@ -381,17 +376,17 @@
         
         BBSCommonNavigationController *nav = [[BBSCommonNavigationController alloc]initWithRootViewController:toyDetailVC];
         [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
-
+        
     }else if([index isEqualToString:@"11"]){
         NSString *img_id = megDic[@"img_id"];
         ToyTransportVC *toyTransportVC = [[ToyTransportVC alloc]init];
         toyTransportVC.order_id = img_id;
         BBSCommonNavigationController *nav = [[BBSCommonNavigationController alloc]initWithRootViewController:toyTransportVC];
         [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
-
+        
     }
-
-
+    
+    
     
 }
 -(void)getAppWX{
@@ -404,7 +399,7 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
         }
     } failed:^(NSError *error) {
-
+        
     }];
 }
 #pragma mark  注册游客身份的用户成功失败的各种方法
@@ -580,7 +575,7 @@
     }else{
         return  nil;
     }
-
+    
     return YES;
 }
 
@@ -589,34 +584,16 @@
     completionHandler(UIBackgroundFetchResultNewData);
     NSLog(@"userInfo = %@",userInfo);
     if (application.applicationState == UIApplicationStateActive) {
-       //这里写APP正在运行时，推送过来消息的处理
+        //这里写APP正在运行时，推送过来消息的处理
     }else if(application.applicationState == UIApplicationStateInactive){
         //APP在后台运行，推送过来消息的处理
-         [self goToPushVc:userInfo];
+        [self goToPushVc:userInfo];
         
     }else if (application.applicationState == UIApplicationStateBackground){
         [self goToPushVc:userInfo];
     }
-    
-    
 }
-- (void)applicationWillResignActive:(UIApplication *)application
-
-{
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    
-    [dateFormatter setDateFormat:@"HH:mm:ss:SSSSSS"];
-    
-    NSString *str = [dateFormatter stringFromDate:[NSDate date]];
-    NSLog(@"现在的时间 applicationWillResignActive= %@",str);
-    
-    
-    
+- (void)applicationWillResignActive:(UIApplication *)application {
     
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -642,13 +619,11 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-
-{
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     
     if ([[[UIDevice currentDevice]systemVersion]floatValue]>=9.0 &&[[[UIDevice currentDevice]systemVersion]floatValue]<10.0) {
         [[NSNotificationCenter defaultCenter]postNotificationName:USER_ISPAY object:nil];
-
+        
     }
     
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
@@ -767,8 +742,6 @@
 //}
 
 #pragma mark - Private
-
-
 -(void)getMessageCount{
     
     NSString *loginUserId=LOGIN_USER_ID;
@@ -783,11 +756,9 @@
         [request startAsynchronous];
         
     }
-    
 }
 
--(void)checkVersion
-{
+-(void)checkVersion {
     
     ASIHTTPRequest* request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:APP_URL]];
     [request setDelegate:self];
@@ -814,7 +785,7 @@
         if ( versionStr &&([versionStr floatValue] > [currentVersion floatValue]) && currentVersion) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"自由环球租赁" message:@"自由环球租赁出新版本啦，更多精彩功能，快来更新吧" delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"马上更新", nil];
             [alert show];
-            
+        
         }*/
     }else{
         
@@ -907,12 +878,12 @@
     self.hasNewShow = YES;
 }
 - (void)makeAShowFailed:(NSNotification *)noti {
-
-        [BBSAlert showAlertWithContent:noti.object andDelegate:nil];
+    
+    [BBSAlert showAlertWithContent:noti.object andDelegate:nil];
 }
 #pragma mark -
 - (void)postSucceed:(NSNotification *)noti {
-  
+    
     BOOL shareToWeixin = [[self.postShareInfo objectForKey:@"weixin"] boolValue];
     BOOL shareToWeibo = [[self.postShareInfo objectForKey:@"weibo"] boolValue];
     
@@ -939,42 +910,42 @@
     NSString *imgUrl = [dict objectForKey:@"img"];
     //创建分享参数
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-   // [shareParams SSDKEnableUseClientShare];
+    // [shareParams SSDKEnableUseClientShare];
     NSArray* imageArray;
     if (imgUrl.length>0) {
         NSString *imgStr = [NSString stringWithFormat:@"%@%@",kImageBaseUrl,imgUrl];
         NSLog(@"imgstr = %@",imgStr);
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgStr]];
         NSLog(@"imgstrurl = %@",url);
-
+        
         UIImage *shareImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         NSLog(@"imgstrurlimg = %@",shareImg);
-
+        
         NSData *basicImgData = UIImagePNGRepresentation(shareImg);
         if (basicImgData.length/1024>150) {
             shareImg =[self scaleToSize:shareImg size:CGSizeMake(30, 30)];
             
         }
-
+        
         imageArray = @[shareImg];
     }else{
         imageArray = @[[UIImage imageNamed:@"img_default"]];
-
+        
     }
     //分享的链接和内容
     NSString *shareStr;
     NSLog(@"diccisvideo = %@",dict[@"isVideo"]);
     if ([dict[@"isVideo"] isEqualToString:@"1"]) {
         shareStr = [NSString stringWithFormat:@"%@&img_id=%@&user_id=%@",VideoShareUrl,img_id,user_id];
-  
+        
     }else{
-    shareStr = [NSString stringWithFormat:@"%@&img_id=%@&user_id=%@",PostShareUrl,img_id,user_id];
-     }
+        shareStr = [NSString stringWithFormat:@"%@&img_id=%@&user_id=%@",PostShareUrl,img_id,user_id];
+    }
     NSURL *shareUrl = [NSURL URLWithString:shareStr];
     NSLog(@"sharesssssssssss = %@",shareUrl);
     
     NSString *contentText = [NSString stringWithFormat:@"晒晒我家宝宝的最新萌萌照|最美的宝宝成长记录@自由环球租赁-最有人气的亲子社区【%@】",shareUrl];
-
+    
     if (imageArray) {
         if (shareToWeixin) {
             [shareParams SSDKSetupShareParamsByText:nil
@@ -1014,13 +985,10 @@
                         [alertView show];
                         break;
                     }
-                        
-                        
                     default:
                         break;
                 }
             }];
-            
         }
         if (shareToWeibo) {
             [shareParams SSDKSetupShareParamsByText:contentText
@@ -1030,7 +998,7 @@
                                                type:SSDKContentTypeAuto];
             NSString *contentSina = [NSString stringWithFormat:@"%@%@",contentText,shareUrl];
             [shareParams SSDKSetupSinaWeiboShareParamsByText:contentSina title:nil image:imageArray url:nil latitude:0.0 longitude:0.0 objectID:nil type:SSDKContentTypeAuto];
-
+            
             [ShareSDK share:SSDKPlatformTypeSinaWeibo parameters:shareParams onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
                 switch (state) {
                     case SSDKResponseStateSuccess:
@@ -1066,14 +1034,9 @@
                     default:
                         break;
                 }
-                
             }];
-            
         }
     }
-    
-    
-    
 }
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
@@ -1104,7 +1067,6 @@
             shareImg =[self scaleToSize:shareImg size:CGSizeMake(30, 30)];
             
         }
-
         imageArray = @[shareImg];
     }else{
         imageArray = @[[UIImage imageNamed:@"img_default"]];
@@ -1289,24 +1251,24 @@
     }
     
 }
-#pragma mark 推送状态
-- (void)networkDidSetup:(NSNotification *)notification {
-}
-
-- (void)networkDidClose:(NSNotification *)notification {
-}
-
-- (void)networkDidRegister:(NSNotification *)notification {
-}
+#pragma mark - 推送状态
+//- (void)networkDidSetup:(NSNotification *)notification {
+//}
+//
+//- (void)networkDidClose:(NSNotification *)notification {
+//}
+//
+//- (void)networkDidRegister:(NSNotification *)notification {
+//}
 
 - (void)networkDidLogin:(NSNotification *)notification {
-    
     if ([APService registrationID]) {
+        
     }
 }
 
-- (void)networkDidReceiveMessage:(NSNotification *)notification {
-
-}
+//- (void)networkDidReceiveMessage:(NSNotification *)notification {
+//
+//}
 
 @end
