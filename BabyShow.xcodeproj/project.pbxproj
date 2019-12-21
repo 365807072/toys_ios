@@ -7878,7 +7878,6 @@
 				4EFEF4211D002693001648B4 /* usersList.plist */,
 				F2CF83931855671700564187 /* Images.xcassets */,
 				F2CF83901855671700564187 /* BabyShow.xcdatamodeld */,
-				4EAC57151B0F2F4100FC5F5F /* Resources */,
 				3CCE97C91A0B5C02006A3767 /* NetAccess */,
 				F238426C1B031BFA00FFCA3B /* SpecialMVC */,
 				4E771F2F1B071CF9006859CA /* SpecialDetailMVC */,
@@ -7888,6 +7887,7 @@
 				3C7286C81A0B95D700A320C4 /* Item */,
 				3C32D9B518767C2000F1FC30 /* Libraries */,
 				3CC1FBEC1A0B72A60093D80C /* Tool */,
+				4EAC57151B0F2F4100FC5F5F /* Resources */,
 				F2CF83851855671700564187 /* Supporting Files */,
 			);
 			path = BabyShow;

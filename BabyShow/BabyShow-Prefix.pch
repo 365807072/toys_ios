@@ -35,7 +35,6 @@
 
 //屏蔽Release状态下的NSLog输出,能够提高运行效率
 #ifdef DEBUG
-#define NSLog(format, ...) NSLog(format, ## __VA_ARGS__)
 #else
 #define NSLog(format, ...)
 #endif
