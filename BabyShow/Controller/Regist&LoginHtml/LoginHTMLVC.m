@@ -714,11 +714,10 @@
 }
 #pragma mark  点击取消本页面
 -(void)callMethodFinish{
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    });
 }
 #pragma mark 检测微信安装否
 -(BOOL)checkWeiXin{
