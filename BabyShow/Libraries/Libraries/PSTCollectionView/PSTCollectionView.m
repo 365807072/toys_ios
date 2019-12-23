@@ -1620,7 +1620,8 @@ static void PSTCollectionViewCommonSetup(PSTCollectionView *_self) {
     for (PSTCollectionViewUpdateItem *updateItem in items) {
         if (updateItem.isSectionOperation && updateItem.updateAction != PSTCollectionUpdateActionDelete) continue;
         if (updateItem.isSectionOperation && updateItem.updateAction == PSTCollectionUpdateActionDelete) {
-            NSInteger numberOfBeforeSection = [_update[@"oldModel"] numberOfItemsInSection:updateItem.indexPathBeforeUpdate.section];
+            //gxm:Xcode11 编译失败,添加类型转换(PSTCollectionViewData *)
+            NSInteger numberOfBeforeSection = [(PSTCollectionViewData *)_update[@"oldModel"] numberOfItemsInSection:updateItem.indexPathBeforeUpdate.section];
             for (NSInteger i = 0; i < numberOfBeforeSection; i++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:updateItem.indexPathBeforeUpdate.section];
 
