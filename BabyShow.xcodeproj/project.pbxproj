@@ -1567,6 +1567,7 @@
 		D5929EE923B0C339004102B3 /* SinaWeiboConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5929ED423B0C338004102B3 /* SinaWeiboConnector.framework */; };
 		D5929EEA23B0C339004102B3 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5929ED523B0C338004102B3 /* ShareSDK.framework */; };
 		D5929EEB23B0C339004102B3 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5929ED723B0C338004102B3 /* MOBFoundation.framework */; };
+		E12D1AAA99E00B0E843181E8 /* Pods_BabyShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC15BE9D747C43B805B0E2E /* Pods_BabyShow.framework */; };
 		EE6228181AECA24700BA893F /* LeadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6228171AECA24700BA893F /* LeadingViewController.m */; };
 		EE6228211AECC53D00BA893F /* GrowthDiaryLeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6228201AECC53D00BA893F /* GrowthDiaryLeadingView.m */; };
 		F20237041ACCDBEC00E0C9F0 /* CombineShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20237031ACCDBEC00E0C9F0 /* CombineShareViewController.m */; };
@@ -3892,6 +3893,8 @@
 		4EFB2E5A1E55BC0700A416A2 /* ToyCarDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToyCarDetailCell.m; sourceTree = "<group>"; };
 		4EFCA2FE1E9F6C2700E3413B /* home_img_cache6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_img_cache6.png; sourceTree = "<group>"; };
 		4EFEF4211D002693001648B4 /* usersList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = usersList.plist; sourceTree = "<group>"; };
+		6E6B08083E9FE7B96C5B5387 /* Pods-BabyShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyShow.debug.xcconfig"; path = "Target Support Files/Pods-BabyShow/Pods-BabyShow.debug.xcconfig"; sourceTree = "<group>"; };
+		9BC15BE9D747C43B805B0E2E /* Pods_BabyShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5929EB523B0C338004102B3 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		D5929EBA23B0C338004102B3 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		D5929EBB23B0C338004102B3 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
@@ -4255,6 +4258,7 @@
 		F2ED2B3B1A7236460022AD9F /* DiaryYearHalfCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryYearHalfCell.m; sourceTree = "<group>"; };
 		F2ED2B411A7247A10022AD9F /* DiaryBigNodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryBigNodeCell.h; sourceTree = "<group>"; };
 		F2ED2B421A7247A10022AD9F /* DiaryBigNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryBigNodeCell.m; sourceTree = "<group>"; };
+		F6672D573C1E87D4F85951D0 /* Pods-BabyShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyShow.release.xcconfig"; path = "Target Support Files/Pods-BabyShow/Pods-BabyShow.release.xcconfig"; sourceTree = "<group>"; };
 		FA079FB31F8E10C70000114C /* img_myshow_newmakeashow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_myshow_newmakeashow.png; sourceTree = "<group>"; };
 		FA079FB51F8E10C70000114C /* img_myshow_newmakeashow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_myshow_newmakeashow@3x.png"; sourceTree = "<group>"; };
 		FA079FB91F8E11DD0000114C /* img_myshow_newmakeashow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_myshow_newmakeashow@2x.png"; sourceTree = "<group>"; };
@@ -4425,6 +4429,7 @@
 				D5929EDD23B0C338004102B3 /* TencentOpenAPI.framework in Frameworks */,
 				F2CF83811855671700564187 /* UIKit.framework in Frameworks */,
 				F2CF837D1855671700564187 /* Foundation.framework in Frameworks */,
+				E12D1AAA99E00B0E843181E8 /* Pods_BabyShow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4442,6 +4447,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A740DFE3F3FAD259FA3233B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E6B08083E9FE7B96C5B5387 /* Pods-BabyShow.debug.xcconfig */,
+				F6672D573C1E87D4F85951D0 /* Pods-BabyShow.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3C01354918CDB81B0067ED18 /* Base64 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7924,6 +7939,7 @@
 				F2CF83A11855671700564187 /* BabyShowTests */,
 				F2CF837B1855671700564187 /* Frameworks */,
 				F2CF837A1855671700564187 /* Products */,
+				0A740DFE3F3FAD259FA3233B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -7977,6 +7993,7 @@
 				F2CF83801855671700564187 /* UIKit.framework */,
 				F2CF83821855671700564187 /* CoreData.framework */,
 				F2CF839A1855671700564187 /* XCTest.framework */,
+				9BC15BE9D747C43B805B0E2E /* Pods_BabyShow.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -8082,9 +8099,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2CF83AB1855671700564187 /* Build configuration list for PBXNativeTarget "BabyShow" */;
 			buildPhases = (
+				F125712532A1BA221837EA9D /* [CP] Check Pods Manifest.lock */,
 				F2CF83761855671700564187 /* Frameworks */,
 				F2CF83751855671700564187 /* Sources */,
 				F2CF83771855671700564187 /* Resources */,
+				C6F1F48B00D5F4C6359BEDFC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -9358,6 +9377,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C6F1F48B00D5F4C6359BEDFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BabyShow/Pods-BabyShow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BabyShow/Pods-BabyShow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F125712532A1BA221837EA9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BabyShow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2CF83751855671700564187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -10069,6 +10135,7 @@
 		};
 		F2CF83AC1855671700564187 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E6B08083E9FE7B96C5B5387 /* Pods-BabyShow.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
@@ -10108,7 +10175,10 @@
 					"$(PROJECT_DIR)/BabyShow/Libraries/MobSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.baobaoxiuxiu.BabyShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -10123,6 +10193,7 @@
 		};
 		F2CF83AD1855671700564187 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6672D573C1E87D4F85951D0 /* Pods-BabyShow.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
@@ -10162,7 +10233,10 @@
 					"$(PROJECT_DIR)/BabyShow/Libraries/MobSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.baobaoxiuxiu.BabyShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
