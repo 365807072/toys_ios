@@ -10095,12 +10095,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BabyShow/BabyShow-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/BabyShow/Libraries/lib",
-					"$(SRCROOT)/BabyShow/Libraries/Alipay_zhifubao",
+					"$(inherited)",
+					"$(PROJECT_DIR)/BabyShow/Libraries/Alipay_zhifubao",
 				);
 				INFOPLIST_FILE = "BabyShow/BabyShow-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/BabyShow/Libraries/lib",
 					"$(PROJECT_DIR)/BabyShow/Libraries/Alipay_zhifubao",
 					"$(PROJECT_DIR)/BabyShow/Libraries/MobSDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -10148,12 +10149,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BabyShow/BabyShow-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/BabyShow/Libraries/lib",
-					"$(SRCROOT)/BabyShow/Libraries/Alipay_zhifubao",
+					"$(inherited)",
+					"$(PROJECT_DIR)/BabyShow/Libraries/Alipay_zhifubao",
 				);
 				INFOPLIST_FILE = "BabyShow/BabyShow-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/BabyShow/Libraries/lib",
 					"$(PROJECT_DIR)/BabyShow/Libraries/Alipay_zhifubao",
 					"$(PROJECT_DIR)/BabyShow/Libraries/MobSDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
