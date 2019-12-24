@@ -25,15 +25,14 @@
     #import "AppDelegate.h"
     #import "BaseLabel.h"
     #import "YLButton.h"
-   #import "BaseImageView.h"
+    #import "BaseImageView.h"
     #import "PDGlobalCore.h"
-
-
-
 
 #endif
 
-//屏蔽Release状态下的NSLog输出,能够提高运行效率
+#define theAppDelegate       ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+
 #ifdef DEBUG
 #else
 #define NSLog(format, ...)

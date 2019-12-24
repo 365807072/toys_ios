@@ -9,26 +9,48 @@
 #ifndef BabyShow_RequestParam_h
 #define BabyShow_RequestParam_h
 
-//#pragma mark - 服务器信息
-//在Info.plist中添加NSAppTransportSecurity类型Dictionary。
-//在NSAppTransportSecurity下添加NSAllowsArbitraryLoads类型Boolean,值设为YES
-////
-//////切换接口的时候记得调整友盟,测试关闭,正式打开
-//////测试环境 ,老版与优化新版同时使用，
-//#define kBasicUrlStr                    @"http://test.show.baobaoshowshow.com/index.php?r=BabyShowV12/"
-//#define kNewBasicUrl                    @"http://test.show.baobaoshowshow.com/index.php?r=BabyShow/"
-//#define kImageBaseUrl                   @"http://test.show.baobaoshowshow.com/"
-//#define kBasicUrlV1                     @"http://test.show.baobaoshowshow.com/index.php?r=BabyShowV1/"
-//
-//#define BABYSHOWSUPERGRANTUSER          @"972"
-////测试服务器的这些文件有可能不全
-//#define AppShareUrl                     @"http://test.show.baobaoshowshow.com/share_test.php?" //秀秀分享页面链接
-//#define PostShareUrl                    @"http://test.show.baobaoshowshow.com/share_post.php?" //话题分享页面链接
-//#define BuyShareUrl                     @"http://test.show.baobaoshowshow.com/share_buy.php?post_url="    //值得买分享链(错误的,测试服务器没有)
-//#define DiaryDetailShareUrl             @"http://test.show.baobaoshowshow.com/share_diary.php?"
-//#define DiarySingleShareUrl             @"http://baobaoshowshow.com/singlediaryshare.php?"           //成长日记详情单张的分
-//#define DiaryShareUrl                   @"http://test.show.baobaoshowshow.com/anim/share_diary.php?"  //成长日记整体的分享
+#define Interface_Offline 1
+#define Interface_Online  2
 
+//切换接口
+#define Current_Interface Interface_Online
+
+//baobaoshowshow.com的域名都过期了耶
+
+#if Current_Interface == Interface_Offline
+//切换接口的时候记得调整友盟,测试关闭,正式打开
+//测试环境 ,老版与优化新版同时使用，
+
+#define kBasicUrlStr            @"http://test.show.baobaoshowshow.com/index.php?r=BabyShowV12/"
+#define kNewBasicUrl            @"http://test.show.baobaoshowshow.com/index.php?r=BabyShow/"
+#define kBasicUrlV1             @"http://test.show.baobaoshowshow.com/index.php?r=BabyShowV1/"
+#define kImageBaseUrl           @"http://test.show.baobaoshowshow.com/"
+#define BABYSHOWSUPERGRANTUSER  @"972"
+
+#define AppShareUrl             @"http://test.show.baobaoshowshow.com/share_test.php?" //秀秀分享页面链接
+#define PostShareUrl            @"http://test.show.baobaoshowshow.com/share_post.php?" //话题分享页面链接
+#define BuyShareUrl             @"http://test.show.baobaoshowshow.com/share_buy.php?post_url=" //值得买分享链(错误的,测试服务器没有)
+#define DiaryDetailShareUrl     @"http://test.show.baobaoshowshow.com/share_diary.php?"
+#define DiarySingleShareUrl     @"http://baobaoshowshow.com/singlediaryshare.php?" //成长日记详情单张的分享
+#define DiaryShareUrl           @"http://test.show.baobaoshowshow.com/anim/share_diary.php?" //成长日记整体的分享
+
+#elif Current_Interface == Interface_Online
+//线上环境
+
+#define kBasicUrlStr            @"http://api.meimei.yihaoss.top/index.php?r=BabyShowV12/"
+#define kNewBasicUrl            @"http://api.meimei.yihaoss.top/index.php?r=BabyShow/"
+#define kBasicUrlV1             @"https://api.meimei.yihaoss.top/index.php?r=BabyShowV1/"
+#define kImageBaseUrl           @"http://api.meimei.yihaoss.top/"
+#define BABYSHOWSUPERGRANTUSER  @"1,2,1738" //宝宝客服,AshlyBaba,moon,多个用户具有超级权限
+
+#define AppShareUrl             @"http://www.meimei.yihaoss.top/share.php?" //秀秀分享页面链接,
+#define PostShareUrl            @"http://www.meimei.yihaoss.top/fenxiang/postbardetial.html?" //话题分享页面链接 拼的参数:img_id要分享的话题ID,user_id当前登录ID
+#define BuyShareUrl             @"http://baobaoshowshow.com/share_buy.php?post_url=" //值得买分享链接
+#define DiaryDetailShareUrl     @"http://baobaoshowshow.com/share_diary.php?" //成长日记详情整体的分享,album_id该成长记录的ID,user_id所有者ID,baby_id所属孩子的ID
+#define DiarySingleShareUrl     @"http://baobaoshowshow.com/singlediaryshare.php?" //成长日记详情单张的分享,user_id所有者ID,img_id该图片的ID
+#define DiaryShareUrl           @"http://www.meimei.yihaoss.top/anim/share_diary.php?" //成长日记外层整体的分享,user_id所有者ID,baby_id所属孩子的ID
+
+#endif
 
 /****************适配x****************************/
 // 除去状态栏 高度的   高度
@@ -64,318 +86,296 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 /****************适配x****************************/
 
-//线上环境,
-#define kPayNewUrl                      @"http://api.meimei.yihaoss.top/index.php?r=BabyShowV2/"
-#define kBasicUrlStr                    @"http://api.meimei.yihaoss.top/index.php?r=BabyShowV12/"
-#define kNewBasicUrl                    @"http://api.meimei.yihaoss.top/index.php?r=BabyShow/"
-#define kBasicUrlV1                     @"https://api.meimei.yihaoss.top/index.php?r=BabyShowV1/"
-#define kImageBaseUrl                   @"http://api.meimei.yihaoss.top/"
-#define BABYSHOWSUPERGRANTUSER          @"1,2,1738"                              //宝宝客服,AshlyBaba,moon,多个用户具有超级权限
-#define AppShareUrl                     @"http://www.meimei.yihaoss.top/share.php?"   //秀秀分享页面链接,
-#define PostShareUrl                    @"http://www.meimei.yihaoss.top/fenxiang/postbardetial.html?" //话题分享页面链接 拼的参数:img_id要分享的话题ID,user_id当前登录ID
-#define PostGroupShareUrl               @"http://www.meimei.yihaoss.top/groupShare/groupIndex.html?"//群分享出去，拼的参数是group_id要分享的话题ID,login_user_id当前登录用户id
 
-#define VideoShareUrl                   @"http://www.meimei.yihaoss.top/fenxiang/video.html?"//视频帖子分享页面的链接img_id要分享的话题ID,user_id当前登录ID
+//#define kPayNewUrl                      @"http://api.meimei.yihaoss.top/index.php?r=BabyShowV2/"
 
+//这几个在测试环境下没有,应该是共用的
+#define PostGroupShareUrl    @"http://www.meimei.yihaoss.top/groupShare/groupIndex.html?"//群分享出去，拼的参数是group_id要分享的话题ID,login_user_id当前登录用户id
+#define VideoShareUrl        @"http://www.meimei.yihaoss.top/fenxiang/video.html?"//视频帖子分享页面的链接img_id要分享的话题ID,user_id当前登录ID
 
-#define BuyShareUrl                     @"http://baobaoshowshow.com/share_buy.php?post_url="    //值得买分享链接
-#define DiaryDetailShareUrl             @"http://baobaoshowshow.com/share_diary.php?"           //成长日记详情整体的分享,album_id该成长记录的ID,user_id所有者ID,baby_id所属孩子的ID
-#define DiarySingleShareUrl             @"http://baobaoshowshow.com/singlediaryshare.php?"      //成长日记详情单张的分享,user_id所有者ID,img_id该图片的ID
-#define DiaryShareUrl                   @"http://www.meimei.yihaoss.top/anim/share_diary.php?"  //成长日记外层整体的分享,user_id所有者ID,baby_id所属孩子的ID
-#define kPayUrl                         @"http://218.244.151.190/demo/charge" //测试的支付接口
-#define kUrlScheme                      @"wxcf183faac658e9c5" // 这个是你定义的 URL Scheme，支付宝、微信支付和测试模式需要。
-#define kStoreShare                     @"http://baobaoshowshow.com/share_business.php?" //商家分享页面
-#define kRedPacketShare                 @"http://www.meimei.yihaoss.top/packet.html?"        //用户红包分享接口
-#define kRedImg                         @"http://api.meimei.yihaoss.top/static/defaultimg/smallpacket.png" //红包分享的小图标
-#define kToyShare                     @"http://www.meimei.yihaoss.top/fenxiang/play.html?" //商家分享页面
-#define kToyNewShare                  @"https://api.meimei.yihaoss.top/H5/fenxiang/toy_cout.html?"//商家分享心页面
-#define kToyCardShare                 @"https://api.meimei.yihaoss.top/H5/fenxiang/member_cout.html?"//会员卡分享
+#define kPayUrl              @"http://218.244.151.190/demo/charge" //测试的支付接口
+#define kUrlScheme           @"wxcf183faac658e9c5" // 这个是你定义的 URL Scheme，支付宝、微信支付和测试模式需要。
+#define kStoreShare          @"http://baobaoshowshow.com/share_business.php?" //商家分享页面
+#define kRedPacketShare      @"http://www.meimei.yihaoss.top/packet.html?"        //用户红包分享接口
+#define kRedImg              @"http://api.meimei.yihaoss.top/static/defaultimg/smallpacket.png" //红包分享的小图标
+#define kToyShare            @"http://www.meimei.yihaoss.top/fenxiang/play.html?" //商家分享页面
+#define kToyNewShare         @"https://api.meimei.yihaoss.top/H5/fenxiang/toy_cout.html?"//商家分享心页面
+#define kToyCardShare        @"https://api.meimei.yihaoss.top/H5/fenxiang/member_cout.html?"//会员卡分享
 
-#ifdef DEBUG
-
-#define NSSLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
-
-#else
-
-#define NSSLog(...)
-
-#endif
-
-#define theAppDelegate    ((AppDelegate*)[[UIApplication sharedApplication] delegate])
-#define kOrderShareState    @"OrderShareState"  //检查红包分享状态
-
-//
-//
 #pragma mark - 接口名称
 
 //登陆相关接口
-#define kLogin              @"Login"
-#define kLoginV1            @"LoginV1"          //第三方登录
-#define kRegist             @"RegistNew"        //新版注册,不包含用户名
-#define kRegistMobile       @"RegistMobile"     //手机号注册
-#define kVisitorRegist      @"VisitorRegist"    //游客模式
-#define kBindShowUserList   @"BindShowUserList" //绑定列表
-#define kCancelBind         @"CancelBind"       //取消绑定
+#define kLogin                  @"Login"
+#define kLoginV1                @"LoginV1"          //第三方登录
+#define kRegist                 @"RegistNew"        //新版注册,不包含用户名
+#define kRegistMobile           @"RegistMobile"     //手机号注册
+#define kVisitorRegist          @"VisitorRegist"    //游客模式
+#define kBindShowUserList       @"BindShowUserList" //绑定列表
+#define kCancelBind             @"CancelBind"       //取消绑定
 
 //首页相关接口
-#define kHeadListV7         @"HeadBannerList"       //专题头部可以跳商家
-#define kSpecialRevision     @"SpecialRevisionV1"  //首页广场
-#define kGetGroupList        @"GetGroupList"   //首页群跳转群列表接口
-#define kBabyHome            @"BabyHomeV3"   //首页V1中下面列表的接口
-#define kListingNew          @"ListingNewV1"   //首页下面最新
-#define kgetHotListData      @"getListingHomeNew" //首页下面的热门
-#define ksearchInformation   @"searchInformation"//搜索商家用户群帖
-#define kMyFocusList         @"MyFocusList"//首页下面的关注接口
-#define kgetToysList         @"getToysList"//玩具租赁页面列表
+#define kHeadListV7             @"HeadBannerList"       //专题头部可以跳商家
+#define kSpecialRevision        @"SpecialRevisionV1"  //首页广场
+#define kGetGroupList           @"GetGroupList"   //首页群跳转群列表接口
+#define kBabyHome               @"BabyHomeV3"   //首页V1中下面列表的接口
+#define kListingNew             @"ListingNewV1"   //首页下面最新
+#define kgetHotListData         @"getListingHomeNew" //首页下面的热门
+#define ksearchInformation      @"searchInformation"//搜索商家用户群帖
+#define kMyFocusList            @"MyFocusList"//首页下面的关注接口
+#define kgetToysList            @"getToysList"//玩具租赁页面列表
 
 
 
 //专题相关接口
-#define kSpecialHot         @"ShowPlazaList"    //专题热门
-#define kSpecialList        @"SpecialListV2"      //更多主题
-#define kSpecialDetail      @"SpecialDetailList"    //专题详情界面
-#define kSpecialDetailGridV2 @"SpecialDetailGridV2" //专题照片墙
-#define kDelSpecial          @"DelSpecial"       //删除专题
-#define kFindSpecialUser    @"FindSpecialUser"   //专题照片墙查找
-#define kImgInfo            @"ImgInfo"          //添加完关注之后的图片详情（评论折叠）
+#define kSpecialHot             @"ShowPlazaList"    //专题热门
+#define kSpecialList            @"SpecialListV2"      //更多主题
+#define kSpecialDetail          @"SpecialDetailList"    //专题详情界面
+#define kSpecialDetailGridV2    @"SpecialDetailGridV2" //专题照片墙
+#define kDelSpecial             @"DelSpecial"       //删除专题
+#define kFindSpecialUser        @"FindSpecialUser"   //专题照片墙查找
+#define kImgInfo                @"ImgInfo"          //添加完关注之后的图片详情（评论折叠）
 
 //秀秀相关接口
-#define kNewTheme            @"NewTheme"          //秀秀最新 
-#define kNewThemeV1          @"NewThemeV1"
-#define kFindPartUser       @"FindPartUser"       //秀秀搜索用户
-#define kMakeAShowWithType  @"ImgShowV2"          //发秀秀，带权限(必须选图)
-//#define kMakeAShowWithType  @"ImgShowV3"        //秀一下，可以只发文字，限安卓
-#define kGetVideoList      @"VideoListingList"        //相册里面的视频接口
-#define kPublicListing     @"PublicListing"       //发布秀秀和话题合并版
-#define kPublicGroupListing @"PublicGroupListing" //群里面发布话题
+#define kNewTheme               @"NewTheme"          //秀秀最新
+#define kNewThemeV1             @"NewThemeV1"
+#define kFindPartUser           @"FindPartUser"       //秀秀搜索用户
+#define kMakeAShowWithType      @"ImgShowV2"          //发秀秀，带权限(必须选图)
+//#define kMakeAShowWithType      @"ImgShowV3"        //秀一下，可以只发文字，限安卓
+#define kGetVideoList           @"VideoListingList"        //相册里面的视频接口
+#define kPublicListing          @"PublicListing"       //发布秀秀和话题合并版
+#define kPublicGroupListing     @"PublicGroupListing" //群里面发布话题
 
-#define kAdmire             @"Admire"             //秀秀赞
-#define kCancelAdmire       @"CancelAdmire"       //取消赞
-#define kDelShow            @"DelListingShow"            //删除我的秀秀
-#define kReview             @"ReviewV1"           //秀秀评论
-#define kReviewList         @"ReviewList"         //秀秀评论列表
-#define kDelReview          @"DelReview"          //删除评论
-#define kCheckWeibo         @"CheckWeibo"         //只针对微博用户授权处理
-#define kGoToPost           @"GoToPost"           //秀秀点击//来自话题//跳到话题详情需要的参数
-#define kHotImgList         @"HotImgList"         //headerView 精选头部
+#define kAdmire                 @"Admire"             //秀秀赞
+#define kCancelAdmire           @"CancelAdmire"       //取消赞
+#define kDelShow                @"DelListingShow"            //删除我的秀秀
+#define kReview                 @"ReviewV1"           //秀秀评论
+#define kReviewList             @"ReviewList"         //秀秀评论列表
+#define kDelReview              @"DelReview"          //删除评论
+#define kCheckWeibo             @"CheckWeibo"         //只针对微博用户授权处理
+#define kGoToPost               @"GoToPost"           //秀秀点击//来自话题//跳到话题详情需要的参数
+#define kHotImgList             @"HotImgList"         //headerView 精选头部
 //热点相关接口
-#define kPostCoverListV1    @"PostCoverListV1"  //热点最新的头部
-#define kPostMyInterest     @"PostMyInterestV2"   //我的兴趣列表
-#define KPostMyInterestList @"PostMyInterestList" //我的兴趣更多的群帖
-#define kPostMyInterestBusiness   @"PostMyInterestBusiness"//热点附近商家
-#define kPostReplyListV1    @"PostReplyListV1"  //热点详情
-#define kPostMyInterestListV1    @"PostMyInterestListV1"//热点下面列表数据
-#define kPostMyInterestListV3    @"PostMyInterestListV4"//热点下面列表数据新接口
+#define kPostCoverListV1        @"PostCoverListV1"  //热点最新的头部
+#define kPostMyInterest         @"PostMyInterestV2"   //我的兴趣列表
+#define KPostMyInterestList     @"PostMyInterestList" //我的兴趣更多的群帖
+#define kPostMyInterestBusiness @"PostMyInterestBusiness"//热点附近商家
+#define kPostReplyListV1        @"PostReplyListV1"  //热点详情
+#define kPostMyInterestListV1   @"PostMyInterestListV1"//热点下面列表数据
+#define kPostMyInterestListV3   @"PostMyInterestListV4"//热点下面列表数据新接口
 
-#define kPostMasterV1       @"PostMasterV1"     //热点只看楼主
-#define kSavePost           @"SaveListing"         //帖子收藏帖子
-#define kCancelPost         @"CancelListing"       //帖子取消收藏帖子
-#define kDelPostShow        @"DelListingShow"      //帖子，删除帖子
-#define kPostReviewList     @"getReviewReviewList"   //帖子评论列表
-#define kPostListV6         @"PostListV6"        //热点二级分类
-#define kGroupDetailListV8  @"GroupDetailListing"  //圈子加商家详情
-#define kGroupDetailListV7  @"GroupDetailListingV1"  //圈子圈主管理群的接口
-#define kNoticeRecGroupList  @"NoticeRecGroupListing" //群主公告或精华列表
+#define kPostMasterV1           @"PostMasterV1"     //热点只看楼主
+#define kSavePost               @"SaveListing"         //帖子收藏帖子
+#define kCancelPost             @"CancelListing"       //帖子取消收藏帖子
+#define kDelPostShow            @"DelListingShow"      //帖子，删除帖子
+#define kPostReviewList         @"getReviewReviewList"   //帖子评论列表
+#define kPostListV6             @"PostListV6"        //热点二级分类
+#define kGroupDetailListV8      @"GroupDetailListing"  //圈子加商家详情
+#define kGroupDetailListV7      @"GroupDetailListingV1"  //圈子圈主管理群的接口
+#define kNoticeRecGroupList     @"NoticeRecGroupListing" //群主公告或精华列表
 
 
-#define kGetGroupInfo       @"GetGroupHead"        //群主信息
-#define kgroupHeadInfo      @"groupHeadInfoV1"       //群头部信息9.20
-#define kPostIdol           @"PostIdol"            //圈子关注
-#define kCancelPostIdol     @"CancelPostIdol"      //取消关注
-#define kPostReview         @"PublicReviewReview"       //话题评论
-#define kPostAdmire         @"PostAdmireNew"       //帖子赞
-#define kCancelPostAdmire   @"CancelPostAdmireNew"    //帖子取消赞
-#define kPublicPost         @"PublicPost"       //发布话题
-#define kPublicGroupPost    @"PublicGroupPost"  //群里发布话题
-#define kPostImageNew       @"PublicListingReview"     //热点跟贴
-#define kPostImgDetail      @"PostImgDetail"   //话题详情新版 2016.4.21
-#define kPostImgReviews     @"ListingImgReviews"   //话题详情内部的回复 2016.4.22
-#define kListingReviews     @"ListingReviews" //话题详情回复的回复 2016.11.21
-#define kPostImgVideo       @"ListingImgVideoV1"   //话题详情带视频版 2016.5.12
-#define kgetGroupListingPage   @"getGroupListingPageV1"  //群详情下面的列表9.20
-#define keditGroupHead      @"editGroupHead" //编辑群头部
-#define kAlbumImgVideo      @"AlbumImgVideo"  //秀秀视频详情头部信息接口 2016.7.4
-#define kAlbumImgReviews    @"AlbumImgReviews"//秀秀视频页面评论详情  2016.7.5
-#define kgetListingList     @"getListingList" //最新的各种群列表
-#define kListingDetail      @"ListingDetailV1"   //帖子图文版详情11.23
-#define kListingImgReviews   @"ListingImgReviews"//帖子里面的评论
+#define kGetGroupInfo           @"GetGroupHead"        //群主信息
+#define kgroupHeadInfo          @"groupHeadInfoV1"       //群头部信息9.20
+#define kPostIdol               @"PostIdol"            //圈子关注
+#define kCancelPostIdol         @"CancelPostIdol"      //取消关注
+#define kPostReview             @"PublicReviewReview"       //话题评论
+#define kPostAdmire             @"PostAdmireNew"       //帖子赞
+#define kCancelPostAdmire       @"CancelPostAdmireNew"    //帖子取消赞
+#define kPublicPost             @"PublicPost"       //发布话题
+#define kPublicGroupPost        @"PublicGroupPost"  //群里发布话题
+#define kPostImageNew           @"PublicListingReview"     //热点跟贴
+#define kPostImgDetail          @"PostImgDetail"   //话题详情新版 2016.4.21
+#define kPostImgReviews         @"ListingImgReviews"   //话题详情内部的回复 2016.4.22
+#define kListingReviews         @"ListingReviews" //话题详情回复的回复 2016.11.21
+#define kPostImgVideo           @"ListingImgVideoV1"   //话题详情带视频版 2016.5.12
+#define kgetGroupListingPage    @"getGroupListingPageV1"  //群详情下面的列表9.20
+#define keditGroupHead          @"editGroupHead" //编辑群头部
+#define kAlbumImgVideo          @"AlbumImgVideo"  //秀秀视频详情头部信息接口 2016.7.4
+#define kAlbumImgReviews        @"AlbumImgReviews"//秀秀视频页面评论详情  2016.7.5
+#define kgetListingList         @"getListingList" //最新的各种群列表
+#define kListingDetail          @"ListingDetailV1"   //帖子图文版详情11.23
+#define kListingImgReviews      @"ListingImgReviews"//帖子里面的评论
 #define kCancelListingReviewAdmire  @"CancelListingReviewAdmire"//取消帖子里面的赞
 #define kPublicListingReviewAdmire  @"PublicListingReviewAdmire"//帖子用户评论的赞
-#define kPublicListingAdmire        @"PublicListingAdmire" //帖子里面对主贴赞
-#define kCancelListingAdmire        @"CancelListingAdmire"//帖子主贴取消赞
-#define kgetGroupCategory           @"getGroupCategory" //分类列表数据
-#define kgetGroupCategoryV1           @"getGroupCategoryV1" //分类列表数据
+#define kPublicListingAdmire    @"PublicListingAdmire" //帖子里面对主贴赞
+#define kCancelListingAdmire    @"CancelListingAdmire"//帖子主贴取消赞
+#define kgetGroupCategory       @"getGroupCategory" //分类列表数据
+#define kgetGroupCategoryV1     @"getGroupCategoryV1" //分类列表数据
 
 
 //群主权限
-#define kTopGroupPost       @"TopGroupListing"     //群里置顶某贴
-#define kNoticeGroupPost    @"NoticeGroupListing"  //群里面设置公告
-#define kEssenceGroupPost  @"EssenceGroupListing"  //群里设置精华
-#define kDelGroupPost       @"DelGroupListing"     //删除某帖子
-#define kDoGroup            @"UpGroup"          //群主修改群名的接口
-#define kSearchGroup        @"SearchGroup"      //广场查找群名和帖子名
+#define kTopGroupPost           @"TopGroupListing"     //群里置顶某贴
+#define kNoticeGroupPost        @"NoticeGroupListing"  //群里面设置公告
+#define kEssenceGroupPost       @"EssenceGroupListing"  //群里设置精华
+#define kDelGroupPost           @"DelGroupListing"     //删除某帖子
+#define kDoGroup                @"UpGroup"          //群主修改群名的接口
+#define kSearchGroup            @"SearchGroup"      //广场查找群名和帖子名
 //商家接口
-#define KBusinessDetailV6   @"BusinessDetailV1"   //商家详情接口12.8
-#define kGetBusinessListV1  @"GetBusinessListV1" //商家列表分类
-#define kGetBusinessListV2  @"GetBusinessListV2" //商家列表加经纬度
-#define kGetBusinessListV3  @"GetBusinessListV3"  //商家加北京
-#define kSearchBusinessListV1 @"SearchBusinessListV1"  //商家搜索结果
-
-
+#define KBusinessDetailV6       @"BusinessDetailV1"   //商家详情接口12.8
+#define kGetBusinessListV1      @"GetBusinessListV1" //商家列表分类
+#define kGetBusinessListV2      @"GetBusinessListV2" //商家列表加经纬度
+#define kGetBusinessListV3      @"GetBusinessListV3"  //商家加北京
+#define kSearchBusinessListV1   @"SearchBusinessListV1"  //商家搜索结果
 
 //关于支付
-#define KOrderDetail        @"OrderDetail"     //我的订单详情
-#define kOrderDetailV1      @"OrderDetailV1"    //我的订单详情新文件里
-#define kUserOrderList      @"UserOrderListV1"   //我的订单列表
-#define kPublicOrder        @"PublicOrderNewV1"     //支付订单
-#define kBusinessOrderList  @"BusinessOrderListV1"//商家订单
-#define kBusinessVerification @"BusinessVerification"//商家验证码
-#define kPublicOrderComment   @"PublicOrderComment"//用户评价订单
-#define kBusinessCommentList  @"BusinessCommentList"//用户评价列表
-#define kRefundOrder          @"RefundOrder"        //用户退款
-#define kBusinessCityList     @"BusinessCityList"    //用户城市筛选
+#define KOrderDetail            @"OrderDetail"     //我的订单详情
+#define kOrderDetailV1          @"OrderDetailV1"    //我的订单详情新文件里
+#define kUserOrderList          @"UserOrderListV1"   //我的订单列表
+#define kPublicOrder            @"PublicOrderNewV1"     //支付订单
+#define kBusinessOrderList      @"BusinessOrderListV1"//商家订单
+#define kBusinessVerification   @"BusinessVerification"//商家验证码
+#define kPublicOrderComment     @"PublicOrderComment"//用户评价订单
+#define kBusinessCommentList    @"BusinessCommentList"//用户评价列表
+#define kRefundOrder            @"RefundOrder"        //用户退款
+#define kBusinessCityList       @"BusinessCityList"    //用户城市筛选
 #define kSearchCompletedOrder   @"SearchCompletedOrder"//商家筛选订单类型接口
+
 //玩具租赁
 #define kGetToysCityList        @"getToysCityList"   //玩具租赁的区域选择
 #define kAddToysAddress         @"addToysAddress"    //用户更改地址
 
 //值得买相关接口
-#define kBusinessListV6     @"BusinessListV6"   //值得买新的轮播图
-#define kShowBuyNewList     @"ShowBuyNewList"   //值得买的今日推荐
-#define kBuyNewList         @"BuyNewList"       //值得买更多列表
-#define kBuyList            @"BuyDetailList"    //妈妈值得买-列表
-#define kWorthBuyImageNew   @"BuyImageNew"      //妈妈值得买发布
-#define kMarkBuyUrl         @"MarkBuyUrl"       //记录值得买点击链接次数
+#define kBusinessListV6         @"BusinessListV6"   //值得买新的轮播图
+#define kShowBuyNewList         @"ShowBuyNewList"   //值得买的今日推荐
+#define kBuyNewList             @"BuyNewList"       //值得买更多列表
+#define kBuyList                @"BuyDetailList"    //妈妈值得买-列表
+#define kWorthBuyImageNew       @"BuyImageNew"      //妈妈值得买发布
+#define kMarkBuyUrl             @"MarkBuyUrl"       //记录值得买点击链接次数
+
 //成长记录相关接口
-#define kDiaryAlbumList     @"DiaryAlbumList"   //成长日记相册列表
-#define kDiaryImgsList      @"DiaryImgsList"    //成长日记详情列表
-#define kDiaryTagList       @"DiaryTagListV1"     //成长日记标签列表
-#define kDiaryAdmire        @"DiaryAdmire"      //成长日记赞
-#define kDiaryCancelAdmire  @"CancelDiaryAdmire"//成长日记取消赞
-#define kDiaryReview        @"DiaryReview"      //成长日记的评论
-#define kDiaryReviewList    @"DiaryReviewList"  //成长日记评论列表
-#define kDelDiaryReview     @"DelDiaryReview"   //成长日记评论删除
-#define kDelDiary           @"DelDiary"         //成长日记单条删除
-#define kUpdateDiaryList    @"UpdateDiaryList"  //成长日记修改列表
-#define kUpDiary            @"UpDiary"          //编辑后提交
-#define kDelDiaryAlbum      @"DelDiaryAlbum"    //编辑页面删除所有
-#define kAddBabyAvatar      @"AddBabyAvatar"    //添加孩子头像
-#define kShareToPost        @"ShareToListing"      //成长日记分享到话题/秀秀
-#define kImportToDiary      @"ImportToDiaryNew"  //成长日记一键导入,记录图片地理经纬度,带合并功能
-#define kImportToDiaryV1    @"ImportToDiaryV3"  //成长日记修改页面一键导入,带图片地理位置
-#define kCombineSendMail    @"CombineSendMail"  //合并需要上传的接口
-#define kCombineDiary       @"CombineDiaryV2"     //合并成长记录同意
-#define kShareSingleToPost  @"ShareSingleToPost"//成长日记单张分享到话题/秀秀
-#define kDiaryCate          @"DiaryCate"        //成长日记设置隐私
-#define kCancelDiaryCate    @"CancelDiaryCate"  //成长日记取消隐私设置
-#define kRecordLoginTime    @"RecordLoginTime"  //记录用户进入自由环球租赁的时间
-#define kPublicGrowth       @"PublicGrowth"     //宝宝身高体重信息的添加
-#define kGrowthList          @"GrowthList"       //宝宝身高体重数据
+#define kDiaryAlbumList         @"DiaryAlbumList"   //成长日记相册列表
+#define kDiaryImgsList          @"DiaryImgsList"    //成长日记详情列表
+#define kDiaryTagList           @"DiaryTagListV1"     //成长日记标签列表
+#define kDiaryAdmire            @"DiaryAdmire"      //成长日记赞
+#define kDiaryCancelAdmire      @"CancelDiaryAdmire"//成长日记取消赞
+#define kDiaryReview            @"DiaryReview"      //成长日记的评论
+#define kDiaryReviewList        @"DiaryReviewList"  //成长日记评论列表
+#define kDelDiaryReview         @"DelDiaryReview"   //成长日记评论删除
+#define kDelDiary               @"DelDiary"         //成长日记单条删除
+#define kUpdateDiaryList        @"UpdateDiaryList"  //成长日记修改列表
+#define kUpDiary                @"UpDiary"          //编辑后提交
+#define kDelDiaryAlbum          @"DelDiaryAlbum"    //编辑页面删除所有
+#define kAddBabyAvatar          @"AddBabyAvatar"    //添加孩子头像
+#define kShareToPost            @"ShareToListing"      //成长日记分享到话题/秀秀
+#define kImportToDiary          @"ImportToDiaryNew"  //成长日记一键导入,记录图片地理经纬度,带合并功能
+#define kImportToDiaryV1        @"ImportToDiaryV3"  //成长日记修改页面一键导入,带图片地理位置
+#define kCombineSendMail        @"CombineSendMail"  //合并需要上传的接口
+#define kCombineDiary           @"CombineDiaryV2"     //合并成长记录同意
+#define kShareSingleToPost      @"ShareSingleToPost"//成长日记单张分享到话题/秀秀
+#define kDiaryCate              @"DiaryCate"        //成长日记设置隐私
+#define kCancelDiaryCate        @"CancelDiaryCate"  //成长日记取消隐私设置
+#define kRecordLoginTime        @"RecordLoginTime"  //记录用户进入自由环球租赁的时间
+#define kPublicGrowth           @"PublicGrowth"     //宝宝身高体重信息的添加
+#define kGrowthList             @"GrowthList"       //宝宝身高体重数据
+
 //我的主页
-#define kUserInfo           @"UserInfo"         //登陆的用户信息
-#define kPostImgInfo        @"PostImgInfo"      //图片详情（评论不折叠）
-#define kMyImgs             @"MyImgsV5"         //我、TA发布的，可以有没图的秀秀版
-#define kMessCount          @"NoticeList"       //消息数量
-#define kIdolListV2         @"IdolListV2"
-#define kPostMyMessage      @"ListingMyMessage"    //我的消息列表
-#define kPostFriendsMessage @"ListingFriendsMessage" //好友消息动态
-#define kPostSaveListV1     @"ListingSaveList"   //新版热点收藏列表
-#define kFocusOn            @"FocusOn"           //关注
-#define kCancelFocus        @"CancelFocus"       //取消关注
-#define kShareListV2        @"ShareListV2"      //合并后的共享列表
-#define kDoShare            @"DoShare"          //请求共享
-#define kCancelShare        @"CancelShare"
-#define kMyShareList        @"MyShareList"      //成长记录合并列表
-#define kPacketList         @"PacketList"      //红包列表
-#define kCheckPacket        @"CheckPacket"     //检测订单列表是否有红包可以发
-#define kBabysIdolList      @"BabysIdolList" //个人中心的成长记录取消关注列表
-#define kEditBabysIdol      @"EditBabysIdol"  //个人中心成长记录添加和取消关注
-#define kEditMobile         @"EditMobile"     //添加或编辑手机号
-#define kMobileInfo         @"MobileInfo"     //更换手机号信息
-#define kCheckMobile        @"CheckMobile"    //检查完整手机号与隐藏手机号是否一致
-#define kCheckMobileInfo    @"CheckMobileInfo"//忘记密码找回时验证手机号是否为注册用户
-#define kEditPassword     @"EditPassword" //找回密码时更换密码接口
-#define kAddMobile        @"AddMobile"    //已经注册的手机号绑定到账号上
-#define kAddCooperation   @"AddCooperation"  //我要合作的接口
-#define kSearchVerification  @"SearchVerification"//商家验证跳转商家订单
+#define kUserInfo               @"UserInfo"         //登陆的用户信息
+#define kPostImgInfo            @"PostImgInfo"      //图片详情（评论不折叠）
+#define kMyImgs                 @"MyImgsV5"         //我、TA发布的，可以有没图的秀秀版
+#define kMessCount              @"NoticeList"       //消息数量
+#define kIdolListV2             @"IdolListV2"
+#define kPostMyMessage          @"ListingMyMessage"    //我的消息列表
+#define kPostFriendsMessage     @"ListingFriendsMessage" //好友消息动态
+#define kPostSaveListV1         @"ListingSaveList"   //新版热点收藏列表
+#define kFocusOn                @"FocusOn"           //关注
+#define kCancelFocus            @"CancelFocus"       //取消关注
+#define kShareListV2            @"ShareListV2"      //合并后的共享列表
+#define kDoShare                @"DoShare"          //请求共享
+#define kCancelShare            @"CancelShare"
+#define kMyShareList            @"MyShareList"      //成长记录合并列表
+#define kPacketList             @"PacketList"      //红包列表
+#define kCheckPacket            @"CheckPacket"     //检测订单列表是否有红包可以发
+#define kBabysIdolList          @"BabysIdolList" //个人中心的成长记录取消关注列表
+#define kEditBabysIdol          @"EditBabysIdol"  //个人中心成长记录添加和取消关注
+#define kEditMobile             @"EditMobile"     //添加或编辑手机号
+#define kMobileInfo             @"MobileInfo"     //更换手机号信息
+#define kCheckMobile            @"CheckMobile"    //检查完整手机号与隐藏手机号是否一致
+#define kCheckMobileInfo        @"CheckMobileInfo"//忘记密码找回时验证手机号是否为注册用户
+#define kEditPassword           @"EditPassword" //找回密码时更换密码接口
+#define kAddMobile              @"AddMobile"    //已经注册的手机号绑定到账号上
+#define kAddCooperation         @"AddCooperation"  //我要合作的接口
+#define kSearchVerification     @"SearchVerification"//商家验证跳转商家订单
+
 //添加宝贝
-#define kAddBaby            @"AddBaby"          //添加宝贝
-#define kEditBabys          @"DoBaby"           //编辑宝宝昵称
-#define kGetBabys           @"GetBabys"         //获取宝贝信息
-#define kUpBabyBirthday     @"UpBabyBirthday"   //编辑宝宝生日
-#define kEditUser           @"EditUser"
-#define kAlbumList          @"AlbumList"
-#define kShareAlbum         @"ShareAlbum"       //分享相册
-#define kImgLists            @"ImgListing"          //图片列表
-#define kImgListV2          @"ImgListingV2"        //主题相册列表,GET
-#define kDoImg              @"DoImg"            //图片的操作
-#define kMoveImgs           @"MoveImgs"         //移动图片
-#define kDownloadImg        @"DownloadImg"      //下载到我的相册
-#define kDoAlbum            @"DoAlbum"          //相册的操作
-#define kNewAlbum           @"NewAlbum"         //新建相册
-#define kUpImgs             @"UpImgs"
+#define kAddBaby                @"AddBaby"          //添加宝贝
+#define kEditBabys              @"DoBaby"           //编辑宝宝昵称
+#define kGetBabys               @"GetBabys"         //获取宝贝信息
+#define kUpBabyBirthday         @"UpBabyBirthday"   //编辑宝宝生日
+#define kEditUser               @"EditUser"
+#define kAlbumList              @"AlbumList"
+#define kShareAlbum             @"ShareAlbum"       //分享相册
+#define kImgLists               @"ImgListing"          //图片列表
+#define kImgListV2              @"ImgListingV2"        //主题相册列表,GET
+#define kDoImg                  @"DoImg"            //图片的操作
+#define kMoveImgs               @"MoveImgs"         //移动图片
+#define kDownloadImg            @"DownloadImg"      //下载到我的相册
+#define kDoAlbum                @"DoAlbum"          //相册的操作
+#define kNewAlbum               @"NewAlbum"         //新建相册
+#define kUpImgs                 @"UpImgs"
 #define kSearchKindergartenUser @"SearchKindergartenUser"  //用户搜索幼儿园老师接口
+
 //v12上的接口
-#define kSendMail           @"SendMail"         //邮箱发送验证码
-#define kVerifyCode         @"VerifyCode"       //验证码验证
-#define kDoPasswd           @"DoPasswd"         //修改密码,重置密码
-#define kDelPostReview      @"DelPostReview"    //贴吧，删除评论
+#define kSendMail               @"SendMail"         //邮箱发送验证码
+#define kVerifyCode             @"VerifyCode"       //验证码验证
+#define kDoPasswd               @"DoPasswd"         //修改密码,重置密码
+#define kDelPostReview          @"DelPostReview"    //贴吧，删除评论
 
 
 //////////////////////////////////////////////////////
 
-#define kSearchSpecialListr  @"SearchSpecialList" //专题搜索结果
-#define kSpecialHeadList    @"HeadListV7"  //专题头部轮播已有可废弃
-#define kHeadListV6         @"HeadListV6"       //专题头部可以跳商家旧版秀秀
-#define kAdmireList         @"AdmireList"//赞列表
+#define kSearchSpecialListr     @"SearchSpecialList" //专题搜索结果
+#define kSpecialHeadList        @"HeadListV7"  //专题头部轮播已有可废弃
+#define kHeadListV6             @"HeadListV6"       //专题头部可以跳商家旧版秀秀
+#define kAdmireList             @"AdmireList"//赞列表
 
-#define kPostAdmireList     @"PostAdmireList"   //贴吧赞列表
-#define kReport             @"InformImg" //举报但貌似没用到
-#define kMessage            @"PostMessage"      //包含跟帖信息的消息列表
-#define kActiveList         @"ActiveList"       //参与活动报名参加的详情列表
+#define kPostAdmireList         @"PostAdmireList"   //贴吧赞列表
+#define kReport                 @"InformImg" //举报但貌似没用到
+#define kMessage                @"PostMessage"      //包含跟帖信息的消息列表
+#define kActiveList             @"ActiveList"       //参与活动报名参加的详情列表
 
-#define kPostBar            @"PostListV2"       //贴吧标题列表
-#define kPostImage          @"PostImage"        //贴吧发起话题、跟帖这个接口在看看
-#define kDelBuyShow         @"DelBuyShow"       //妈妈值得买-删除帖子
+#define kPostBar                @"PostListV2"       //贴吧标题列表
+#define kPostImage              @"PostImage"        //贴吧发起话题、跟帖这个接口在看看
+#define kDelBuyShow             @"DelBuyShow"       //妈妈值得买-删除帖子
 
 
 
-#define kBuyAdmire          @"BuyAdmire"        //妈妈值得买详情-赞
-#define kCancelBuyAdmire    @"CancelBuyAdmire"  //妈妈值得买详情-取消赞
+#define kBuyAdmire              @"BuyAdmire"        //妈妈值得买详情-赞
+#define kCancelBuyAdmire        @"CancelBuyAdmire"  //妈妈值得买详情-取消赞
 
-#define kBuyReview          @"BuyReviewV1"        //妈妈值得买详情-评论
-#define kBuyReviewList      @"BuyReviewList"    //妈妈值得买详情-评论列表
-#define kDelBuyReview       @"DelBuyReview"     //妈妈值得买详情-删除评论
+#define kBuyReview              @"BuyReviewV1"        //妈妈值得买详情-评论
+#define kBuyReviewList          @"BuyReviewList"    //妈妈值得买详情-评论列表
+#define kDelBuyReview           @"DelBuyReview"     //妈妈值得买详情-删除评论
 
-#define kPostInfo           @"PostInfo"         //贴吧刷新单条数据
+#define kPostInfo               @"PostInfo"         //贴吧刷新单条数据
 
-#define kPostListV4         @"PostListV4"       //新版话题列表
+#define kPostListV4             @"PostListV4"       //新版话题列表
 
-#define kPostInfoV4         @"PostInfoV4"       //新版热点局部刷新
-#define kJoinAlbumList      @"JoinAlbumList"    //参加展播的相册列表
-#define kJoinHotAlbum       @"JoinHotAlbum"     //POST，报名展播
+#define kPostInfoV4             @"PostInfoV4"       //新版热点局部刷新
+#define kJoinAlbumList          @"JoinAlbumList"    //参加展播的相册列表
+#define kJoinHotAlbum           @"JoinHotAlbum"     //POST，报名展播
 
-#define kBindUser           @"BindShowUser"     //登录第三方绑定站内用户
+#define kBindUser               @"BindShowUser"     //登录第三方绑定站内用户
 
 //支付宝
-#define KPartner            @"2088721930969145"
-#define KSeller             @"laozou@baobaoshowshow.com"
-#define KPrivateKey      @"";
-#define KPayOrder            @"PayOrder"//支付成功之后走的接口
-#define kCheckOrderPay       @"CheckOrderPay"//第二次回到订单页面检测订单状态
+#define KPartner                @"2088721930969145"
+#define KSeller                 @"laozou@baobaoshowshow.com"
+#define KPrivateKey             @""
+#define KPayOrder               @"PayOrder"//支付成功之后走的接口
+#define kCheckOrderPay          @"CheckOrderPay"//第二次回到订单页面检测订单状态
 
+#define kOrderShareState        @"OrderShareState"  //检查红包分享状态
 
 #pragma mark - 接口参数名
 //登录
-#define kUserName   @"user_name"
-#define kPassword   @"password"
+#define kUserName               @"user_name"
+#define kPassword               @"password"
 
 //注册
-#define kRegistUserName   @"user_name"
-#define kRegistPassword   @"password"
-#define kRegistNickName   @"nick_name"
-#define kRegistAvatar     @"avatar"
-#define kRegistEmail      @"email"
+#define kRegistUserName         @"user_name"
+#define kRegistPassword         @"password"
+#define kRegistNickName         @"nick_name"
+#define kRegistAvatar           @"avatar"
+#define kRegistEmail            @"email"
 
 //秀一下
 #define kMakeAShowUserId        @"user_id"
@@ -430,17 +430,17 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define kAdmireListPageSize     @"page_size"
 
 //评论
-#define kReviewUserId       @"user_id"      //操作评论的人,当前登录用户
-#define kReviewDemand       @"demand"       //拼好的 @somebody:xxxx
-#define kReviewImgId        @"img_id"       //要评论的图片id
-#define kReviewOwnerId      @"owner_id"     //拥有者
-#define kReviewAtId         @"at_id"        //要回复的人
+#define kReviewUserId           @"user_id"      //操作评论的人,当前登录用户
+#define kReviewDemand           @"demand"       //拼好的 @somebody:xxxx
+#define kReviewImgId            @"img_id"       //要评论的图片id
+#define kReviewOwnerId          @"owner_id"     //拥有者
+#define kReviewAtId             @"at_id"        //要回复的人
 
 //赞
-#define kAdmireUserId       @"user_id"
-#define kAdmireAdmireId     @"admire_id"
-#define kAdmireImgId        @"img_id"
-#define kAdmireBtnTag       @"kAdmireBtnTag"
+#define kAdmireUserId           @"user_id"
+#define kAdmireAdmireId         @"admire_id"
+#define kAdmireImgId            @"img_id"
+#define kAdmireBtnTag           @"kAdmireBtnTag"
 
 //取消赞
 #define kCancelAdmireUserId     @"user_id"
@@ -457,7 +457,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define kSquarePage             @"page"
 #define kSquarePageSize         @"page_size"
 #define kSquareLogin_user_id    @"login_user_id"
-#define kSquareIs_android      @"is_android"
+#define kSquareIs_android       @"is_android"
 
 //相册列表
 #define kAlbumListUser_id       @"user_id"
@@ -596,7 +596,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /**
  *  我的好友的成长日记总信息列表
  */
-#define kOpenStoryListLogin_user_id @"login_user_id"
+#define kOpenStoryListLogin_user_id     @"login_user_id"
 
 /**
  *  成长记录列表
@@ -608,8 +608,8 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define kStoryListLast_id           @"last_id"
 #define kStoryListPage_size         @"page_size"
 
-#define kPublicBabysIdol @"PublicBabysIdol"
-#define kBabysIdolCombine   @"BabysIdolCombine"//成长记录同步接口
+#define kPublicBabysIdol            @"PublicBabysIdol"
+#define kBabysIdolCombine           @"BabysIdolCombine"//成长记录同步接口
 
 /**
  *  编辑成长日记
